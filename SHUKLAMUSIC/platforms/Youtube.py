@@ -11,22 +11,38 @@ from youtubesearchpython.__future__ import VideosSearch
 from SHUKLAMUSIC.utils.database import is_on_off
 from SHUKLAMUSIC.utils.formatters import time_to_seconds
 
-async def shell_cmd(cmd):
-    proc = await asyncio.create_subprocess_shell(
-        cmd,
-        stdout=asyncio.subprocess.PIPE,
-        stderr=asyncio.subprocess.PIPE,
-    )
-    out, errorz = await proc.communicate()
-    if errorz:
-        if "unavailable videos are hidden" in (errorz.decode("utf-8")).lower():
-            return out.decode("utf-8")
-        else:
-            return errorz.decode("utf-8")
-    return out.decode("utf-8")
+# تعریف مسیر فایل کوکی
+COOKIES_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "cookies.txt")
 
+# محتوای کوکی‌ها
+COOKIES_CONTENT = """# Netscape HTTP Cookie File
+# https://curl.haxx.se/rfc/cookie_spec.html
+# This is a generated file! Do not edit.
+.youtube.com	TRUE	/	TRUE	1735493186	GPS	1
+.youtube.com	TRUE	/	TRUE	1751043400	VISITOR_INFO1_LIVE	WcywpbZGUHI
+.youtube.com	TRUE	/	TRUE	0	YSC	R4vSYyZou1o
+.youtube.com	TRUE	/	TRUE	1770051400	PREF	f6=40000080&tz=Africa.Cairo
+.youtube.com	TRUE	/	TRUE	1770051399	SID	g.a000rwif6iD2x3FaYpNgivtJGWW4CL2MGOs6adyzfAkQyoatItYFWmYvnq-DEcLdEPAm1tgxigACgYKAR8SARYSFQHGX2MiOkr8hdmkOJ6-sdhSN0xB6BoVAUF8yKrrrdWhweezgbcwPZq9nueg0076
+.youtube.com	TRUE	/	TRUE	1770051399	__Secure-1PSID	g.a000rwif6iD2x3FaYpNgivtJGWW4CL2MGOs6adyzfAkQyoatItYFMElO_tcyzuUUTuNAkTkHdgACgYKAQgSARYSFQHGX2MimwhaPxrvTpiQOHhSt-UAihoVAUF8yKpqjMkoVPMHp75Qsr2z8gCR0076
+.youtube.com	TRUE	/	TRUE	1770051399	__Secure-3PSID	g.a000rwif6iD2x3FaYpNgivtJGWW4CL2MGOs6adyzfAkQyoatItYFkkIM9KpzRwW5Sll9u1i9mwACgYKARQSARYSFQHGX2Mig3N3Ccgnglx-hZyfW_3OuhoVAUF8yKrsJaDeKhz5y-gWWjsE-N6j0076
+.youtube.com	TRUE	/	TRUE	1770051399	HSID	AODJM2g2pkpNICzL8
+.youtube.com	TRUE	/	TRUE	1770051399	SSID	AkVwj6aTB0CC7IPY9
+.youtube.com	TRUE	/	TRUE	1770051399	APISID	bXYtyFBoJGyxEtRA/A6-SFypzGfFmnohwL
+.youtube.com	TRUE	/	TRUE	1770051399	SAPISID	fNwoSGQDglZOcDjQ/AVZWC-ogcRva_FaX1
+.youtube.com	TRUE	/	TRUE	1770051399	__Secure-1PAPISID	fNwoSGQDglZOcDjQ/AVZWC-ogcRva_FaX1
+.youtube.com	TRUE	/	TRUE	1770051399	__Secure-3PAPISID	fNwoSGQDglZOcDjQ/AVZWC-ogcRva_FaX1
+.youtube.com	TRUE	/	TRUE	1767027405	SIDCC	AKEyXzVEw4P2t3_rzqJJQVbzJiw8LcK14Oan_PBlQSbFKPiUZ5oTuHPaiYquGrxEk4O2v-H_Lg
+.youtube.com	TRUE	/	TRUE	1767027405	__Secure-1PSIDCC	AKEyXzWbH9dhGrbxD4WgxeGuoA-To6b6_Kuxge2QUZhFk3aYpm7mI-rdyVr8JDZMD65jEeb1
+.youtube.com	TRUE	/	TRUE	1767027405	__Secure-3PSIDCC	AKEyXzXjhGhd0Vb4TfAAIifc_alE_BZ-NUVlulytsiQ36O2IlSixWGrAHIKYdex_R2BEX2FExA
+.youtube.com	TRUE	/	TRUE	1770051400	LOGIN_INFO	AFmmF2swRAIgK1BeoDNqzFc9GY69uGJE5eorD47wBxzSHu97gotTceACIG39RoiGG2-ZH54hnAhKOuKBlGKjkN1wD5g5WrHxi3Fl:QUQ3MjNmempWX0JaRTBpNzdOYW12YVJlSGVZT2t5STU0cWVWU1dtRUpldEtEWXVWSXZSem1XU0N0UnZRejFIZnQxRnlFSXUzWGtpczZ5dHdvaVhGcFUwNjdUS1JlVnVtZmRDUHcyTkVYazRkZkZueVlvSElfV0F5anRGNllwVTcyZTJFR0NqalZuZXpEZThrdk5OTGR2dGlLTVNqZ0hLUThn
+.youtube.com	TRUE	/	TRUE	1767027399	__Secure-1PSIDTS	sidts-CjEB7wV3sYE1exL2fUvO4gJEeHbpxu953fvdGGLfe5yu7sU3oqLrmu7MnThnDT75ht_DEAA
+.youtube.com	TRUE	/	TRUE	1767027399	__Secure-3PSIDTS	sidts-CjEB7wV3sYE1exL2fUvO4gJEeHbpxu953fvdGGLfe5yu7sU3oqLrmu7MnThnDT75ht_DEAA"""
 
-cookies_file = "/SHUKLAMUSIC/assets/cookies.txt"
+def ensure_cookies_file():
+    os.makedirs(os.path.dirname(COOKIES_FILE), exist_ok=True)
+    if not os.path.exists(COOKIES_FILE):
+        with open(COOKIES_FILE, 'w', encoding='utf-8') as f:
+            f.write(COOKIES_CONTENT)
 
 class YouTubeAPI:
     def __init__(self):
@@ -35,6 +51,7 @@ class YouTubeAPI:
         self.status = "https://www.youtube.com/oembed?url="
         self.listbase = "https://youtube.com/playlist?list="
         self.reg = re.compile(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])")
+        ensure_cookies_file()
 
     async def exists(self, link: str, videoid: Union[bool, str] = None):
         if videoid:
@@ -122,7 +139,7 @@ class YouTubeAPI:
             link = link.split("&")[0]
         proc = await asyncio.create_subprocess_exec(
             "yt-dlp",
-            "--cookies", cookies_file,
+            "--cookies", COOKIES_FILE,
             "-g",
             "-f",
             "best[height<=?720][width<=?1280]",
@@ -135,80 +152,6 @@ class YouTubeAPI:
             return 1, stdout.decode().split("\n")[0]
         else:
             return 0, stderr.decode()
-
-    async def playlist(self, link, limit, user_id, videoid: Union[bool, str] = None):
-        if videoid:
-            link = self.listbase + link
-        if "&" in link:
-            link = link.split("&")[0]
-        playlist = await shell_cmd(
-            f"yt-dlp --cookies {cookies_file} -i --get-id --flat-playlist --playlist-end {limit} --skip-download {link}"
-        )
-        try:
-            result = playlist.split("\n")
-            for key in result:
-                if key == "":
-                    result.remove(key)
-        except:
-            result = []
-        return result
-
-    async def track(self, link: str, videoid: Union[bool, str] = None):
-        if videoid:
-            link = self.base + link
-        if "&" in link:
-            link = link.split("&")[0]
-        results = VideosSearch(link, limit=1)
-        for result in (await results.next())["result"]:
-            title = result["title"]
-            duration_min = result["duration"]
-            vidid = result["id"]
-            yturl = result["link"]
-            thumbnail = result["thumbnails"][0]["url"].split("?")[0]
-        track_details = {
-            "title": title,
-            "link": yturl,
-            "vidid": vidid,
-            "duration_min": duration_min,
-            "thumb": thumbnail,
-        }
-        return track_details, vidid
-
-    async def formats(self, link: str, videoid: Union[bool, str] = None):
-        if videoid:
-            link = self.base + link
-        if "&" in link:
-            link = link.split("&")[0]
-        ytdl_opts = {"quiet": True, "cookiefile": cookies_file}
-        ydl = yt_dlp.YoutubeDL(ytdl_opts)
-        with ydl:
-            formats_available = []
-            r = ydl.extract_info(link, download=False)
-            for format in r["formats"]:
-                try:
-                    str(format["format"])
-                except:
-                    continue
-                if not "dash" in str(format["format"]).lower():
-                    try:
-                        format["format"]
-                        format["filesize"]
-                        format["format_id"]
-                        format["ext"]
-                        format["format_note"]
-                    except:
-                        continue
-                    formats_available.append(
-                        {
-                            "format": format["format"],
-                            "filesize": format["filesize"],
-                            "format_id": format["format_id"],
-                            "ext": format["ext"],
-                            "format_note": format["format_note"],
-                            "yturl": link,
-                        }
-                    )
-        return formats_available, link
 
     async def slider(
         self,
@@ -251,7 +194,7 @@ class YouTubeAPI:
                 "nocheckcertificate": True,
                 "quiet": True,
                 "no_warnings": True,
-                "cookiefile": cookies_file,
+                "cookiefile": COOKIES_FILE,
             }
             x = yt_dlp.YoutubeDL(ydl_optssx)
             info = x.extract_info(link, False)
@@ -269,7 +212,7 @@ class YouTubeAPI:
                 "nocheckcertificate": True,
                 "quiet": True,
                 "no_warnings": True,
-                "cookiefile": cookies_file,
+                "cookiefile": COOKIES_FILE,
             }
             x = yt_dlp.YoutubeDL(ydl_optssx)
             info = x.extract_info(link, False)
@@ -291,7 +234,7 @@ class YouTubeAPI:
                 "no_warnings": True,
                 "prefer_ffmpeg": True,
                 "merge_output_format": "mp4",
-                "cookiefile": cookies_file,  # Add cookie file option here
+                "cookiefile": COOKIES_FILE,
             }
             x = yt_dlp.YoutubeDL(ydl_optssx)
             x.download([link])
@@ -313,7 +256,7 @@ class YouTubeAPI:
                         "preferredquality": "192",
                     }
                 ],
-                "cookiefile": cookies_file,  # Add cookie file option here
+                "cookiefile": COOKIES_FILE,
             }
             x = yt_dlp.YoutubeDL(ydl_optssx)
             x.download([link])
@@ -333,7 +276,7 @@ class YouTubeAPI:
             else:
                 proc = await asyncio.create_subprocess_exec(
                     "yt-dlp",
-                    "--cookies", cookies_file,
+                    "--cookies", COOKIES_FILE,
                     "-g",
                     "-f",
                     "best[height<=?720][width<=?1280]",
