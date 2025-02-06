@@ -1,254 +1,248 @@
-# helper for strings
-
 class Helper(object):
-    HELP_M = '''ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ.
-ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ
+    HELP_M = '''اختر الفئة التي تريد الحصول على المساعدة فيها.
+اطرح أسئلتك في محادثة الدعم
 
-ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ : /'''
-    HELP_ChatGPT = '''CʜᴀᴛGPT
+يمكن استخدام جميع الأوامر مع: /'''
 
-CʜᴀᴛGPT ᴄᴏᴍᴍᴀɴᴅꜱ:
+    HELP_ChatGPT = '''شات جي بي تي
 
-/ask ➠ ǫᴜᴇʀɪᴇs ᴛʜᴇ ᴀɪ ᴍᴏᴅᴇʟ ᴛᴏ ɢᴇᴛ ᴀ ʀᴇsᴘᴏɴsᴇ ᴛᴏ ʏᴏᴜʀ ǫᴜᴇsᴛɪᴏɴ.
+أوامر شات جي بي تي:
+
+/ask ➠ يستعلم من نموذج الذكاء الاصطناعي للحصول على إجابة لسؤالك.
 '''
 
-    HELP_Sticker = '''sᴛɪᴄᴋᴇʀs
+    HELP_Sticker = '''الملصقات
 
-sᴛɪᴄᴋᴇʀs ᴄᴏᴍᴍᴀɴᴅꜱ:
+أوامر الملصقات:
 
-/packkang ➠ ᴄʀᴇᴀᴛᴇs ᴀ ᴘᴀᴄᴋ ᴏғ sᴛɪᴄᴋᴇʀs ғʀᴏᴍ ᴀ ᴏᴛʜᴇʀ ᴘᴀᴄᴋ.
-/stickerid ➠ ɢᴇᴛs ᴛʜᴇ sᴛɪᴄᴋᴇʀ ɪᴅ ᴏғ ᴀ sᴛɪᴄᴋᴇʀ.
+/packkang ➠ ينشئ حزمة ملصقات من حزمة أخرى.
+/stickerid ➠ يحصل على معرف الملصق.
 '''
 
-    HELP_TagAll = '''Tᴀɢ
+    HELP_TagAll = '''المنشن
 
-  Tᴀɢ ᴄᴏᴍᴍᴀɴᴅꜱ:
+أوامر المنشن:
 
-✿ ᴄʜᴏᴏsᴇ ᴛᴀɢ ɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ ✿
+✿ اختر نوع المنشن في مجموعتك ✿
 
-๏ /gmtag ➛ ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ 
-ᴛᴀɢ sᴛᴏᴘ ⇴ /gmstop
+๏ /gmtag ➛ منشن صباح الخير
+للإيقاف ⇴ /gmstop
 
-๏ /gntag ➛ ɢᴏᴏᴅ ɴɪɢʜᴛ ᴛᴀɢ sᴛᴏᴘ ⇴ /gnstop
+๏ /gntag ➛ منشن مساء الخير
+للإيقاف ⇴ /gnstop
 
-๏ /tagall ➛ ʀᴀɴᴅᴏᴍ ᴍᴇssᴀɢᴇ ᴛᴀɢ sᴛᴏᴘ ⇴ /tagoff /tagstop
+๏ /tagall ➛ منشن برسالة عشوائية
+للإيقاف ⇴ /tagoff /tagstop
 
-๏ /hitag ➛ ʀᴀɴᴅᴏᴍ ʜɪɴᴅɪ ᴍᴇssᴀɢᴇ ᴛᴀɢ sᴛᴏᴘ ⇴/histop
+๏ /hitag ➛ منشن برسالة هندية عشوائية
+للإيقاف ⇴/histop
 
-๏ /shayari ➛ ʀᴀɴᴅᴏᴍ sʜᴀʏᴀʀɪ ᴛᴀɢ sᴛᴏᴘ ⇴ /shstop
+๏ /shayari ➛ منشن بشعر عشوائي
+للإيقاف ⇴ /shstop
 
-๏ /utag ➛ ᴀɴʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ ᴛᴀɢ sᴛᴏᴘ ⇴ /cancel 
+๏ /utag ➛ منشن بنص مخصص
+للإيقاف ⇴ /cancel 
 
-๏ /vctag ➛ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ɪɴᴠɪᴛᴇ ᴛᴀɢ sᴛᴏᴘ ⇴ /vcstop
+๏ /vctag ➛ منشن دعوة للمحادثة الصوتية
+للإيقاف ⇴ /vcstop
 '''
 
-    HELP_Info = '''Iɴꜰᴏ
+    HELP_Info = '''المعلومات
 
-Iɴꜰᴏ ᴄᴏᴍᴍᴀɴᴅꜱ:
+أوامر المعلومات:
 
-/id : ɢᴇᴛ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ɢʀᴏᴜᴘ ɪᴅ. ɪғ ᴜsᴇᴅ ʙʏ ʀᴇᴘʟʏɪɴɢ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ, ɢᴇᴛs ᴛʜᴀᴛ ᴜsᴇʀ's ɪᴅ.
-/info : ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴀ ᴜsᴇʀ.
-/github <ᴜsᴇʀɴᴀᴍᴇ> : ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴀ ɢɪᴛʜᴜʙ ᴜsᴇʀ.
-'''
-    HELP_Group = '''Gʀᴏᴜᴘ
-
-Gʀᴏᴜᴘ ᴄᴏᴍᴍᴀɴᴅꜱ:
-
-ᴛʜᴇsᴇ ᴀʀᴇ ᴛʜᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ᴄᴏᴍᴍᴀɴᴅs:
-
-⦿ /pin ➠ ᴘɪɴs ᴀ ᴍᴇssᴀɢᴇ ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ.
-⦿ /pinned ➠ ᴅɪsᴘʟᴀʏs ᴛʜᴇ ᴘɪɴɴᴇᴅ ᴍᴇssᴀɢᴇ ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ.
-⦿ /unpin ➠ ᴜɴᴘɪɴs ᴛʜᴇ ᴄᴜʀʀᴇɴᴛʟʏ ᴘɪɴɴᴇᴅ ᴍᴇssᴀɢᴇ.
-⦿ /staff ➠ ᴅɪsᴘʟᴀʏs ᴛʜᴇ ʟɪsᴛ ᴏғ sᴛᴀғғ ᴍᴇᴍʙᴇʀs.
-⦿ /bots ➠ ᴅɪsᴘʟᴀʏs ᴛʜᴇ ʟɪsᴛ ᴏғ ʙᴏᴛs ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ.
-⦿ /settitle ➠ sᴇᴛs ᴛʜᴇ ᴛɪᴛʟᴇ ᴏғ ᴛʜᴇ ɢʀᴏᴜᴘ.
-⦿ /setdiscription ➠ sᴇᴛs ᴛʜᴇ ᴅᴇsᴄʀɪᴘᴛɪᴏɴ ᴏғ ᴛʜᴇ ɢʀᴏᴜᴘ.
-⦿ /setphoto ➠ sᴇᴛs ᴛʜᴇ ɢʀᴏᴜᴘ ᴘʜᴏᴛᴏ.
-⦿ /removephoto ➠ ʀᴇᴍᴏᴠᴇs ᴛʜᴇ ɢʀᴏᴜᴘ ᴘʜᴏᴛᴏ.
-⦿ /zombies ➠ ʀᴇᴍᴏᴠᴇs ᴀᴄᴄ ᴅᴇʟᴇᴛᴇᴅ ᴍᴇᴍʙᴇʀs ғʀᴏᴍ ᴛʜᴇ ɢʀᴏᴜᴘ.
-⦿ /imposter ᴏɴ/ᴏғғ ➠ ᴛᴜʀɴs ᴏɴ ᴏʀ ᴏғғ ᴛʜᴇ ᴡᴀᴛᴄʜᴇʀ ғᴏʀ ʏᴏᴜʀ ɢʀᴏᴜᴘ, ᴡʜɪᴄʜ ɴᴏᴛɪғɪᴇs ᴀʙᴏᴜᴛ ᴜsᴇʀs ᴡʜᴏ ᴄʜᴀɴɢᴇ ᴛʜᴇɪʀ ɴᴀᴍᴇ ᴏʀ ᴜsᴇʀɴᴀᴍᴇ.
+/id : للحصول على معرف المجموعة الحالية. إذا تم استخدامه بالرد على رسالة، يحصل على معرف المستخدم.
+/info : للحصول على معلومات حول المستخدم.
+/github <اسم المستخدم> : للحصول على معلومات حول مستخدم جيثب.
 '''
 
-    HELP_Extra = '''Exᴛʀᴀ
+    HELP_Group = '''المجموعة
 
-Exᴛʀᴀ ᴄᴏᴍᴍᴀɴᴅꜱ:
+أوامر إدارة المجموعة:
 
-⦿ /math ➠ sᴏʟᴠᴇs ᴍᴀᴛʜᴇᴍᴀᴛɪᴄᴀʟ ᴘʀᴏʙʟᴇᴍs ᴀɴᴅ ᴇǫᴜᴀᴛɪᴏɴs.
-⦿ /blackpink ➠ ɢᴇɴᴇʀᴀᴛᴇs ᴀ ʙʟᴀᴄᴋᴘɪɴᴋ-sᴛʏʟᴇ ʟᴏɢᴏ.
-⦿ /carbon ➠ ɢᴇɴᴇʀᴀᴛᴇs ᴀ ᴄᴀʀʙᴏɴ ᴄᴏᴅᴇ ɪᴍᴀɢᴇ ғʀᴏᴍ ᴀ ᴄᴏᴅᴇ sɴɪᴘᴘᴇᴛ.
-⦿ /speedtest ➠ ᴍᴇᴀsᴜʀᴇs ᴛʜᴇ ɪɴᴛᴇʀɴᴇᴛ sᴘᴇᴇᴅ.
-⦿ /reverse ➠ ʀᴇᴠᴇʀsᴇs ᴀ ɢɪᴠᴇɴ ᴛᴇxᴛ.
-⦿ /webss ➠ ᴛᴀᴋᴇs ᴀ sᴄʀᴇᴇɴsʜᴏᴛ ᴏғ ᴀ ᴡᴇʙsɪᴛᴇ.
-⦿ /paste ➠ ᴜᴘʟᴏᴀᴅs ᴀ ᴛᴇxᴛ sɴɪᴘᴘᴇᴛ ᴛᴏ ᴛʜᴇ ᴄʟᴏᴜᴅ ᴀɴᴅ ɢɪᴠᴇs ᴀ ʟɪɴᴋ.
-⦿ /tgm ➠ ᴜᴘʟᴏᴀᴅs ᴀ ᴘʜᴏᴛᴏ (ᴜɴᴅᴇʀ 𝟻ᴍʙ) ᴛᴏ ᴛʜᴇ ᴄʟᴏᴜᴅ ᴀɴᴅ ɢɪᴠᴇs ᴀ ʟɪɴᴋ.
-⦿ /tr ➠ ᴛʀᴀɴsʟᴀᴛᴇs ᴛᴇxᴛ.
-⦿ /google ➠ sᴇᴀʀᴄʜᴇs ғᴏʀ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴏɴ ɢᴏᴏɢʟᴇ.
-⦿ /stack ➠ sᴇᴀʀᴄʜᴇs ғᴏʀ ᴘʀᴏɢʀᴀᴍᴍɪɴɢ-ʀᴇʟᴀᴛᴇᴅ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴏɴ sᴛᴀᴄᴋ ᴏᴠᴇʀғʟᴏᴡ.
+هذه هي الأوامر المتاحة لإدارة المجموعة:
+
+⦿ /pin ➠ تثبيت رسالة في المجموعة.
+⦿ /pinned ➠ عرض الرسالة المثبتة في المجموعة.
+⦿ /unpin ➠ إلغاء تثبيت الرسالة الحالية.
+⦿ /staff ➠ عرض قائمة المشرفين.
+⦿ /bots ➠ عرض قائمة البوتات في المجموعة.
+⦿ /settitle ➠ تعيين عنوان المجموعة.
+⦿ /setdiscription ➠ تعيين وصف المجموعة.
+⦿ /setphoto ➠ تعيين صورة المجموعة.
+⦿ /removephoto ➠ إزالة صورة المجموعة.
+⦿ /zombies ➠ إزالة الحسابات المحذوفة من المجموعة.
+⦿ /imposter تشغيل/إيقاف ➠ تشغيل أو إيقاف مراقب المجموعة الذي يخبر عن المستخدمين الذين يغيرون أسماءهم.
 '''
 
-    HELP_Image = '''Iᴍᴀɢᴇ
+    HELP_Extra = '''إضافي
 
-Iᴍᴀɢᴇ ᴄᴏᴍᴍᴀɴᴅꜱ:
+الأوامر الإضافية:
 
-⦿ /draw ➠ ɢᴇɴᴇʀᴀᴛᴇs ᴀ ᴅʀᴀᴡɪɴɢ ʙᴀsᴇᴅ ᴏɴ ᴀ ɢɪᴠᴇɴ ᴘᴏʀᴏᴍᴘᴛ.
-⦿ /image ➠ sᴇᴀʀᴄʜᴇs ғᴏʀ ᴀɴ ɪᴍᴀɢᴇ ʙᴀsᴇᴅ ᴏɴ ᴀ ɢɪᴠᴇɴ ᴋᴇʏᴡᴏʀᴅ.
-⦿ /upscale ➠ ʀᴇᴘʟʏ ᴛᴏ ᴀɴ ɪᴍᴀɢᴇ ᴛᴏ ᴜᴘsᴄᴀʟᴇ ɪᴛ ᴀɴᴅ ɪᴍᴘʀᴏᴠᴇ ɪᴛs ǫᴜᴀʟɪᴛʏ.
-'''
-    HELP_Action = '''Aᴄᴛɪᴏɴ
-
-Aᴄᴛɪᴏɴ ᴄᴏᴍᴍᴀɴᴅꜱ:
-
-» ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs ꜰᴏʀ Bᴀɴs & Mᴜᴛᴇ :
-
- ❍ /kickme: kicks the user who issued the command
-
-Admins only:
- ❍ /ban <userhandle>: bans a user. (via handle, or reply)
- ❍ /sban <userhandle>: Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
- ❍ /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
- ❍ /unban <userhandle>: unbans a user. (via handle, or reply)
- ❍ /kick <userhandle>: kicks a user out of the group, (via handle, or reply)
- ❍ /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user.
- ❍ /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
- ❍ /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
-__
-𝐒ᴘᴇᴄɪᴀʟ 𝐂ᴏᴍᴍᴀɴᴅs 𝐒ᴜᴘᴘᴏʀᴛ 𝐀ʟʟ 𝐄xᴀᴍᴘʟᴇ  - 𝚈𝚞𝚖𝚒 𝚋𝚊𝚗 𝚈𝚞𝚖𝚒 𝚖𝚞𝚝𝚎 𝚈𝚞𝚖𝚒 𝚙𝚛𝚘𝚖𝚘𝚝𝚎 ..... 𝚎𝚝𝚌
-'''
-    HELP_Search = '''Sᴇᴀʀᴄʜ
-
-Sᴇᴀʀᴄʜ ᴄᴏᴍᴍᴀɴᴅꜱ:
-
-• /google <query> : Search the google for the given query.
-• /anime <query>  : Search myanimelist for the given query.
-• /stack <query>  : Search stackoverflow for the given query.
-• /image (/imgs) <query> : Get the images regarding to your query
-
-Example:
-/google pyrogram: return top 5 reuslts.
+⦿ /math ➠ حل المسائل والمعادلات الرياضية.
+⦿ /blackpink ➠ إنشاء شعار بنمط بلاك بينك.
+⦿ /carbon ➠ إنشاء صورة كود كاربون من نص برمجي.
+⦿ /speedtest ➠ قياس سرعة الإنترنت.
+⦿ /reverse ➠ عكس النص المعطى.
+⦿ /webss ➠ أخذ لقطة شاشة لموقع ويب.
+⦿ /paste ➠ رفع نص إلى السحابة وإعطاء رابط.
+⦿ /tgm ➠ رفع صورة (أقل من 5 ميجابايت) إلى السحابة وإعطاء رابط.
+⦿ /tr ➠ ترجمة النص.
+⦿ /google ➠ البحث عن معلومات على جوجل.
+⦿ /stack ➠ البحث عن معلومات برمجية على ستاك أوفرفلو.
 '''
 
-    HELP_Font = '''ғᴏɴᴛ
+    HELP_Image = '''الصور
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ғᴏɴᴛ ᴍᴏᴅᴜʟᴇ:
+أوامر الصور:
 
-ғᴏɴᴛ ᴍᴏᴅᴜʟᴇ:
-
-ʙʏ ᴜsɪɴɢ ᴛʜɪs ᴍᴏᴅᴜʟᴇ ʏᴏᴜ ᴄᴀɴ ᴄʜᴀɴɢᴇ ғᴏɴᴛs ᴏғ ᴀɴʏ ᴛᴇxᴛ!
-
-◌ /font [ᴛᴇxᴛ]
+⦿ /draw ➠ إنشاء رسم بناءً على وصف معين.
+⦿ /image ➠ البحث عن صورة بناءً على كلمة مفتاحية.
+⦿ /upscale ➠ الرد على صورة لتحسين جودتها.
 '''
-    HELP_Game = '''ɢᴀᴍᴇs
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ɢᴀᴍᴇs ᴍᴏᴅᴜʟᴇ:
-ɢᴀᴍᴇs ᴍᴏᴅᴜʟᴇ:
+    HELP_Action = '''الإجراءات
 
-ʜᴇʀᴇ ᴀʀᴇ sᴏᴍᴇ ᴍɪɴɪ ɢᴀᴍᴇs ғᴏʀ ʏᴏᴜ ᴛᴏ ᴘʟᴀʏ!
+أوامر الحظر والكتم:
 
-◌ /toss [ᴛᴏss ᴀ ᴄᴏɪɴ]
+» الأوامر المتاحة للحظر والكتم:
 
-◌ /roll [ʀᴏʟʟ ᴀ ᴅɪᴄᴇ]
+ ❍ /kickme: طرد المستخدم الذي أصدر الأمر
 
-◌ /dart [ᴛʜʀᴏᴡ ᴀ ᴅᴀʀᴛ]
-
-◌ /slot [Jᴀᴄᴋᴘᴏᴛ ᴍᴀᴄʜɪɴᴇ]
-
-◌ /bowling [ʙᴏᴡʟɪɴɢ ɢᴀᴍᴇ]
-
-◌ /basket [ʙᴀsᴋᴇᴛʙᴀʟʟ ɢᴀᴍᴇ]
-
-◌ /football [ғᴏᴏᴛʙᴀʟʟ ɢᴀᴍᴇ]
+للمشرفين فقط:
+ ❍ /ban <معرف المستخدم>: حظر مستخدم
+ ❍ /sban <معرف المستخدم>: حظر صامت للمستخدم
+ ❍ /tban <معرف المستخدم> x(د/س/ي): حظر مؤقت
+ ❍ /unban <معرف المستخدم>: إلغاء الحظر
+ ❍ /kick <معرف المستخدم>: طرد مستخدم
+ ❍ /mute <معرف المستخدم>: كتم مستخدم
+ ❍ /tmute <معرف المستخدم> x(د/س/ي): كتم مؤقت
+ ❍ /unmute <معرف المستخدم>: إلغاء الكتم
 '''
-    HELP_TG = '''Ⓣ-ɢʀᴀᴘʜ
 
-Ⓣ-ɢʀᴀᴘʜ ᴄᴏᴍᴍᴀɴᴅꜱ:
+    HELP_Search = '''البحث
 
-ᴄʀᴇᴀᴛᴇ ᴀ ᴛᴇʟᴇɢʀᴀᴘʜ ʟɪɴᴋ ᴀɴʏ ᴍᴇᴅɪᴀ!
+أوامر البحث:
 
-◌ /tgm [ʀᴇᴘʟʏ ᴛᴏ ᴀɴʏ ᴍᴇᴅɪᴀ]
-◌ /tgt [ʀᴇᴘʟʏ ᴛᴏ ᴀɴʏ ᴍᴇᴅɪᴀ]
+• /google <استعلام> : البحث في جوجل
+• /anime <استعلام> : البحث في قائمة الأنمي
+• /stack <استعلام> : البحث في ستاك أوفرفلو
+• /image (/imgs) <استعلام> : البحث عن صور
 '''
-    HELP_Imposter = '''ɪᴍᴘᴏsᴛᴇʀ
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ɪᴍᴘᴏsᴛᴇʀ ᴍᴏᴅᴜʟᴇ:
+    HELP_Font = '''الخطوط
 
-ɪᴍᴘᴏsᴛᴇʀ ᴍᴏᴅᴜʟᴇ:
+مساعدة وحدة الخطوط:
+
+تغيير خط أي نص!
+
+◌ /font [النص]
+'''
+
+    HELP_Game = '''الألعاب
+
+ألعاب صغيرة للعب:
+
+◌ /toss [رمي عملة]
+◌ /roll [رمي نرد]
+◌ /dart [رمي سهم]
+◌ /slot [ماكينة القمار]
+◌ /bowling [لعبة البولينج]
+◌ /basket [لعبة كرة السلة]
+◌ /football [لعبة كرة القدم]
+'''
+
+    HELP_TG = '''تلغراف
+
+أوامر تلغراف:
+
+إنشاء رابط تلغراف لأي وسائط!
+
+◌ /tgm [الرد على وسائط]
+◌ /tgt [الرد على وسائط]
+'''
+
+    HELP_Imposter = '''المتنكر
+
+وحدة المتنكر:
 
 ◌ /imposter on
 ◌ /imposter off
 '''
-    HELP_TD = '''Tʀᴜᴛʜ-ᗪᴀʀᴇ
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ Tʀᴜᴛʜ-ᗪᴀʀᴇ ᴍᴏᴅᴜʟᴇ:
+    HELP_TD = '''الحقيقة والجرأة
 
-ᴛʀᴜᴛʜ ᴀɴᴅ ᴅᴀʀᴇ
-◌ /truth : sᴇɴᴅs ᴀ ʀᴀɴᴅᴏᴍ ᴛʀᴜᴛʜ sᴛʀɪɴɢ.
-◌ /dare : sᴇɴᴅs ᴀ ʀᴀɴᴅᴏᴍ ᴅᴀʀᴇ sᴛʀɪɴɢ.
+أوامر الحقيقة والجرأة:
+
+◌ /truth : إرسال سؤال حقيقة عشوائي
+◌ /dare : إرسال تحدي عشوائي
 '''
-    HELP_HT = '''ʜᴀsᴛᴀɢ
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ʜᴀsᴛᴀɢ ᴍᴏᴅᴜʟᴇ:
+    HELP_HT = '''الهاشتاج
 
-ʜᴀsᴛᴀɢ
-◌ /hastag : [ᴛᴇxᴛ]
+وحدة الهاشتاج:
+
+◌ /hastag : [النص]
 '''
-    HELP_TTS = '''ᴛᴛs
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ᴛᴛs ᴍᴏᴅᴜʟᴇ:
+    HELP_TTS = '''تحويل النص إلى كلام
 
-❀ ᴛᴛs
-◌ /tts : [ᴛᴇxᴛ]
+وحدة تحويل النص إلى كلام:
 
-◌ ᴜsᴀɢᴇ ➛ ᴛᴇxᴛ ᴛᴏ ᴀᴜᴅɪᴏ
+❀ تحويل النص إلى كلام
+◌ /tts : [النص]
+
+◌ الاستخدام ➛ تحويل النص إلى صوت
 '''
-    HELP_Fun = '''ғᴜɴ
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ғᴜɴ ᴍᴏᴅᴜʟᴇ:
-ᴡɪsʜ ᴍᴏᴅᴜʟᴇ:
+    HELP_Fun = '''المرح
 
-◌ /wish : ᴀᴅᴅ ʏᴏᴜʀ ᴡɪsʜ ᴀɴᴅ sᴇᴇ ɪᴛs ᴘᴏssɪʙɪʟɪᴛʏ!
+وحدة المرح والتسلية:
 
-ᴍᴏʀᴇ sᴛᴜғғ:
-◌ /sigma [ᴄʜᴇᴄᴋ ʏᴏᴜʀ sɪɢᴍᴀɴᴇss]
-◌ /cute [ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴄᴜᴛᴇɴᴇss]
-◌ /horny [ᴄʜᴇᴄᴋ ʏᴏᴜʀ ʜᴏʀɴʏɴᴇss]
-◌ /lesbo [ᴄʜᴇᴄᴋ ʜᴏᴡ ᴍᴜᴄʜ ʟᴇᴢʙɪᴀɴ ʏᴏᴜ ᴀʀᴇ]
-◌ /depressed [ᴄʜᴇᴄᴋ ʜᴏᴡ ᴍᴜᴄʜ ᴅᴇᴘʀᴇssᴇᴅ ʏᴏᴜ ᴀʀᴇ]
-◌ /gay [ᴄʜᴇᴄᴋ ʜᴏᴡ ᴍᴜᴄʜ ɢᴀʏ ʏᴏᴜ ᴀʀᴇ]
-◌ /rand [ᴄʜᴇᴄᴋ ʜᴏᴡ ᴍᴜᴄʜ ʀᴀɴᴅ ʏᴏᴜ ᴀʀᴇ]
-◌ /bkl [ᴄʜᴇᴄᴋ ʜᴏᴡ ᴍᴜᴄʜ ʙᴋʟ ʏᴏᴜ ᴀʀᴇ]
-◌ /boobs [ᴄʜᴇᴄᴋ ʏᴏᴜʀ ʙᴏᴏʙɪᴇs sɪᴢᴇ]
-◌ /dick [ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴅɪᴄᴋ sɪᴢᴇ]
+◌ /wish : أضف أمنيتك وشاهد احتمالية تحققها!
+
+المزيد من الأوامر:
+◌ /sigma [تحقق من مستوى سيجما]
+◌ /cute [تحقق من مستوى لطافتك]
+◌ /horny [تحقق من مستوى شهوانيتك]
+◌ /lesbo [تحقق من مستوى ميولك المثلية]
+◌ /depressed [تحقق من مستوى اكتئابك]
+◌ /gay [تحقق من مستوى مثليتك]
+◌ /rand [تحقق من مستوى عشوائيتك]
+◌ /bkl [تحقق من مستوى بكل]
+◌ /boobs [تحقق من حجم صدرك]
+◌ /dick [تحقق من حجم عضوك]
 '''
-    HELP_Q = '''ǫᴜᴏᴛʟʏ
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ǫᴜᴏᴛʟʏ ᴍᴏᴅᴜʟᴇ:
+    HELP_Q = '''الاقتباس
 
-◌ /q : ᴄʀᴇᴀᴛᴇ ᴀ ǫᴜᴏᴛᴇ ғʀᴏᴍ ᴛʜᴇ ᴍᴇssᴀɢᴇ
+وحدة الاقتباس:
 
-◌ /q r : ᴄʀᴇᴀᴛᴇ ᴀ ǫᴜᴏᴛᴇ ғʀᴏᴍ ᴛʜᴇ ᴍᴇssᴀɢᴇ ᴡɪᴛʜ ʀᴇᴘʟʏ
+◌ /q : إنشاء اقتباس من الرسالة
+
+◌ /q r : إنشاء اقتباس من الرسالة مع الرد
 '''
-    
-    
+
     fullpromote = {
-    'can_change_info': True,
-    'can_post_messages': True,
-    'can_edit_messages': True,
-    'can_delete_messages': True,
-    'can_invite_users': True,
-    'can_restrict_members': True,
-    'can_pin_messages': True,
-    'can_promote_members': True,
-    'can_manage_chat': True,
-}
+        'can_change_info': True,
+        'can_post_messages': True,
+        'can_edit_messages': True,
+        'can_delete_messages': True,
+        'can_invite_users': True,
+        'can_restrict_members': True,
+        'can_pin_messages': True,
+        'can_promote_members': True,
+        'can_manage_chat': True,
+    }
 
     promoteuser = {
-    'can_change_info': False,
-    'can_post_messages': True,
-    'can_edit_messages': True,
-    'can_delete_messages': False,
-    'can_invite_users': True,
-    'can_restrict_members': False,
-    'can_pin_messages': False,
-    'can_promote_members': False,
-    'can_manage_chat': True,
-}
+        'can_change_info': False,
+        'can_post_messages': True,
+        'can_edit_messages': True,
+        'can_delete_messages': False,
+        'can_invite_users': True,
+        'can_restrict_members': False,
+        'can_pin_messages': False,
+        'can_promote_members': False,
+        'can_manage_chat': True,
+    }
