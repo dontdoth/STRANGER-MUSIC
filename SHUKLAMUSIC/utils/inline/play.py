@@ -4,16 +4,37 @@ from SHUKLAMUSIC import app
 import config
 from SHUKLAMUSIC.utils.formatters import time_to_seconds
 
+def stream_markup(_, chat_id):
+    buttons = [
+        [
+            InlineKeyboardButton(text="▶️ تشغيل", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="⏸ إيقاف مؤقت", callback_data=f"ADMIN Pause|{chat_id}"),
+        ],
+        [
+            InlineKeyboardButton(text="⏭ تخطي", callback_data=f"ADMIN Skip|{chat_id}"),
+            InlineKeyboardButton(text="⏹ إنهاء", callback_data=f"ADMIN Stop|{chat_id}"),
+        ],
+        [
+            InlineKeyboardButton(text="🔊 الصوت", callback_data=f"ADMIN Sound|{chat_id}"),
+            InlineKeyboardButton(text="🔇 كتم", callback_data=f"ADMIN Mute|{chat_id}"),
+        ],
+        [
+            InlineKeyboardButton(text="📝 قائمة التشغيل", callback_data=f"ADMIN Playlist|{chat_id}"),
+            InlineKeyboardButton(text="ᴄᴏᴅᴇᴅ ʙʏ ɢᴀɴᴢʜ", url="https://t.me/GANZH"),
+        ],
+        [InlineKeyboardButton(text="🗑 اغلاق القائمة", callback_data="close")],
+    ]
+    return buttons
 
 def track_markup(_, videoid, user_id, channel, fplay):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["P_B_1"],  # Keeping original variable
+                text=_["P_B_1"],
                 callback_data=f"MusicStream {videoid}|{user_id}|a|{channel}|{fplay}",
             ),
             InlineKeyboardButton(
-                text=_["P_B_2"],  # Keeping original variable
+                text=_["P_B_2"],
                 callback_data=f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
             ),
         ],
@@ -83,11 +104,11 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["P_B_1"],  # Keeping original variable
+                text=_["P_B_1"],
                 callback_data=f"SHUKLAPlaylists {videoid}|{user_id}|{ptype}|a|{channel}|{fplay}",
             ),
             InlineKeyboardButton(
-                text=_["P_B_2"],  # Keeping original variable
+                text=_["P_B_2"],
                 callback_data=f"SHUKLAPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}",
             ),
         ],
@@ -104,7 +125,7 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["P_B_3"],  # Keeping original variable
+                text=_["P_B_3"],
                 callback_data=f"LiveStream {videoid}|{user_id}|{mode}|{channel}|{fplay}",
             ),
         ],
@@ -122,11 +143,11 @@ def slider_markup(_, videoid, user_id, query, query_type, channel, fplay):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["P_B_1"],  # Keeping original variable
+                text=_["P_B_1"],
                 callback_data=f"MusicStream {videoid}|{user_id}|a|{channel}|{fplay}",
             ),
             InlineKeyboardButton(
-                text=_["P_B_2"],  # Keeping original variable
+                text=_["P_B_2"],
                 callback_data=f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
             ),
         ],
