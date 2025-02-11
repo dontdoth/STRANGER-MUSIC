@@ -14,13 +14,13 @@ API_HASH = getenv("API_HASH")
 # ------------------------------------------------------
 BOT_TOKEN = getenv("BOT_TOKEN")
 # -------------------------------------------------------
-OWNER_USERNAME = getenv("OWNER_USERNAME","@gna_i")
+OWNER_USERNAME = getenv("OWNER_USERNAME","@ranger_two")
 # --------------------------------------------------------
-BOT_USERNAME = getenv("BOT_USERNAME" , "G_I_Pbot")
+BOT_USERNAME = getenv("BOT_USERNAME" , "DANCETELEGRAMBOT")
 # --------------------------------------------------------
-BOT_NAME = getenv("BOT_NAME" , "ميوزك جنازه")
+BOT_NAME = getenv("BOT_NAME" ," dance")
 # ---------------------------------------------------------
-ASSUSERNAME = getenv("ASSUSERNAME" , "wsmttthh")
+ASSUSERNAME = getenv("ASSUSERNAME" , "NMOPLJ")
 # ---------------------------------------------------------
 
 
@@ -35,10 +35,10 @@ DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
 # ----------------------------------------------------------------
 
 # ----------------------------------------------------------------
-LOGGER_ID = int(getenv("LOGGER_ID", "-1002193065248"))
+LOGGER_ID = int(getenv("LOGGER_ID", "-1002371756731"))
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
-OWNER_ID = int(getenv("OWNER_ID", "5089141183"))
+OWNER_ID = int(getenv("OWNER_ID", "6543211255"))
 # -----------------------------------------------------------------
 # -----------------------------------------------------------------
 
@@ -67,8 +67,8 @@ GIT_TOKEN = getenv(
 
 # ------------------------------------------------------------------------
 # -------------------------------------------------------------------------
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/JJ7AA1")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/X5_MI")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/atrinmusic_tm")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/atrinmusic_tm1")
 # ------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------
 
@@ -114,6 +114,7 @@ TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "5242880000"))
 # ------------------------------------
 # ------------------------------------
 # ------------------------------------
+# ------------------------------------
 STRING1 = getenv("STRING_SESSION", None)
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
@@ -121,6 +122,20 @@ STRING4 = getenv("STRING_SESSION4", None)
 STRING5 = getenv("STRING_SESSION5", None)
 STRING6 = getenv("STRING_SESSION6", None)
 STRING7 = getenv("STRING_SESSION7", None)
+
+# Create STRINGSESSIONS list from available STRING sessions
+STRING_SESSIONS = []
+for session in [STRING1, STRING2, STRING3, STRING4, STRING5, STRING6, STRING7]:
+    if session is not None:
+        STRING_SESSIONS.append(session)
+
+BANNED_USERS = filters.user()
+adminlist = {}
+lyrical = {}
+votemode = {}
+autoclean = []
+confirmer = {}
+
 BANNED_USERS = filters.user()
 adminlist = {}
 lyrical = {}
