@@ -8,31 +8,31 @@ languages_present = {}
 def get_string(lang: str):
     return languages[lang]
 
-# First load Arabic as default language
-if "ar" not in languages:
-    languages["ar"] = yaml.safe_load(
-        open(r"./strings/langs/ar.yml", encoding="utf8")
+# First load Persian (Farsi) as default language
+if "fa" not in languages:
+    languages["fa"] = yaml.safe_load(
+        open(r"./strings/langs/fa.yml", encoding="utf8")
     )
-    languages_present["ar"] = languages["ar"]["name"]
+    languages_present["fa"] = languages["fa"]["name"]
 
 # Then load other languages
 for filename in os.listdir(r"./strings/langs/"):
     if filename.endswith(".yml"):
         language_name = filename[:-4]
-        if language_name == "ar":  # Skip Arabic as it's already loaded
+        if language_name == "fa":  # Skip Persian as it's already loaded
             continue
             
         languages[language_name] = yaml.safe_load(
             open(r"./strings/langs/" + filename, encoding="utf8")
         )
         
-        # Use Arabic as the base language for missing translations
-        for item in languages["ar"]:
+        # Use Persian as the base language for missing translations
+        for item in languages["fa"]:
             if item not in languages[language_name]:
-                languages[language_name][item] = languages["ar"][item]
+                languages[language_name][item] = languages["fa"][item]
                 
         try:
             languages_present[language_name] = languages[language_name]["name"]
         except:
-            print("There is some issue with the language file inside bot.")
+            print("مشکلی در فایل زبان ربات وجود دارد.")
             exit()
