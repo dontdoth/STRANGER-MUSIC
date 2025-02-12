@@ -1,254 +1,256 @@
-# helper for strings
-
 class Helper(object):
-    HELP_M = '''ᴄʜᴏᴏsᴇ ᴛʜᴇ ᴄᴀᴛᴇɢᴏʀʏ ғᴏʀ ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴɴᴀ ɢᴇᴛ ʜᴇʟᴩ.
-ᴀsᴋ ʏᴏᴜʀ ᴅᴏᴜʙᴛs ᴀᴛ sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ
+    HELP_M = '''دسته مورد نظر خود را برای دریافت راهنمایی انتخاب کنید.
+سوالات خود را در گروه پشتیبانی مطرح کنید
 
-ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ : /'''
-    HELP_ChatGPT = '''CʜᴀᴛGPT
+تمام دستورات با / قابل استفاده هستند'''
 
-CʜᴀᴛGPT ᴄᴏᴍᴍᴀɴᴅꜱ:
+    HELP_ChatGPT = '''چت جی‌پی‌تی
 
-/ask ➠ ǫᴜᴇʀɪᴇs ᴛʜᴇ ᴀɪ ᴍᴏᴅᴇʟ ᴛᴏ ɢᴇᴛ ᴀ ʀᴇsᴘᴏɴsᴇ ᴛᴏ ʏᴏᴜʀ ǫᴜᴇsᴛɪᴏɴ.
+دستورات چت جی‌پی‌تی:
+
+/ask ➠ از مدل هوش مصنوعی سوال بپرسید و پاسخ دریافت کنید.
 '''
 
-    HELP_Sticker = '''sᴛɪᴄᴋᴇʀs
+    HELP_Sticker = '''استیکرها 
 
-sᴛɪᴄᴋᴇʀs ᴄᴏᴍᴍᴀɴᴅꜱ:
+دستورات استیکر:
 
-/packkang ➠ ᴄʀᴇᴀᴛᴇs ᴀ ᴘᴀᴄᴋ ᴏғ sᴛɪᴄᴋᴇʀs ғʀᴏᴍ ᴀ ᴏᴛʜᴇʀ ᴘᴀᴄᴋ.
-/stickerid ➠ ɢᴇᴛs ᴛʜᴇ sᴛɪᴄᴋᴇʀ ɪᴅ ᴏғ ᴀ sᴛɪᴄᴋᴇʀ.
+/packkang ➠ از پک استیکر دیگری یک پک جدید می‌سازد.
+/stickerid ➠ شناسه استیکر را نمایش می‌دهد.
 '''
 
-    HELP_TagAll = '''Tᴀɢ
+    HELP_TagAll = '''تگ کردن
 
-  Tᴀɢ ᴄᴏᴍᴍᴀɴᴅꜱ:
+دستورات تگ:
 
-✿ ᴄʜᴏᴏsᴇ ᴛᴀɢ ɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ ✿
+✿ نوع تگ را در گروه خود انتخاب کنید ✿
 
-๏ /gmtag ➛ ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ 
-ᴛᴀɢ sᴛᴏᴘ ⇴ /gmstop
+๏ /gmtag ➛ تگ صبح بخیر
+برای توقف ⇴ /gmstop
 
-๏ /gntag ➛ ɢᴏᴏᴅ ɴɪɢʜᴛ ᴛᴀɢ sᴛᴏᴘ ⇴ /gnstop
+๏ /gntag ➛ تگ شب بخیر
+برای توقف ⇴ /gnstop 
 
-๏ /tagall ➛ ʀᴀɴᴅᴏᴍ ᴍᴇssᴀɢᴇ ᴛᴀɢ sᴛᴏᴘ ⇴ /tagoff /tagstop
+๏ /tagall ➛ تگ با پیام تصادفی
+برای توقف ⇴ /tagoff /tagstop
 
-๏ /hitag ➛ ʀᴀɴᴅᴏᴍ ʜɪɴᴅɪ ᴍᴇssᴀɢᴇ ᴛᴀɢ sᴛᴏᴘ ⇴/histop
+๏ /hitag ➛ تگ با پیام تصادفی فارسی
+برای توقف ⇴ /histop
 
-๏ /shayari ➛ ʀᴀɴᴅᴏᴍ sʜᴀʏᴀʀɪ ᴛᴀɢ sᴛᴏᴘ ⇴ /shstop
+๏ /shayari ➛ تگ با شعر تصادفی 
+برای توقف ⇴ /shstop
 
-๏ /utag ➛ ᴀɴʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ ᴛᴀɢ sᴛᴏᴘ ⇴ /cancel 
+๏ /utag ➛ تگ با متن دلخواه
+برای توقف ⇴ /cancel
 
-๏ /vctag ➛ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ɪɴᴠɪᴛᴇ ᴛᴀɢ sᴛᴏᴘ ⇴ /vcstop
+๏ /vctag ➛ تگ دعوت به چت صوتی
+برای توقف ⇴ /vcstop
 '''
 
-    HELP_Info = '''Iɴꜰᴏ
+    HELP_Info = '''اطلاعات
 
-Iɴꜰᴏ ᴄᴏᴍᴍᴀɴᴅꜱ:
+دستورات اطلاعات:
 
-/id : ɢᴇᴛ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ɢʀᴏᴜᴘ ɪᴅ. ɪғ ᴜsᴇᴅ ʙʏ ʀᴇᴘʟʏɪɴɢ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ, ɢᴇᴛs ᴛʜᴀᴛ ᴜsᴇʀ's ɪᴅ.
-/info : ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴀ ᴜsᴇʀ.
-/github <ᴜsᴇʀɴᴀᴍᴇ> : ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴀ ɢɪᴛʜᴜʙ ᴜsᴇʀ.
-'''
-    HELP_Group = '''Gʀᴏᴜᴘ
-
-Gʀᴏᴜᴘ ᴄᴏᴍᴍᴀɴᴅꜱ:
-
-ᴛʜᴇsᴇ ᴀʀᴇ ᴛʜᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ᴄᴏᴍᴍᴀɴᴅs:
-
-⦿ /pin ➠ ᴘɪɴs ᴀ ᴍᴇssᴀɢᴇ ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ.
-⦿ /pinned ➠ ᴅɪsᴘʟᴀʏs ᴛʜᴇ ᴘɪɴɴᴇᴅ ᴍᴇssᴀɢᴇ ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ.
-⦿ /unpin ➠ ᴜɴᴘɪɴs ᴛʜᴇ ᴄᴜʀʀᴇɴᴛʟʏ ᴘɪɴɴᴇᴅ ᴍᴇssᴀɢᴇ.
-⦿ /staff ➠ ᴅɪsᴘʟᴀʏs ᴛʜᴇ ʟɪsᴛ ᴏғ sᴛᴀғғ ᴍᴇᴍʙᴇʀs.
-⦿ /bots ➠ ᴅɪsᴘʟᴀʏs ᴛʜᴇ ʟɪsᴛ ᴏғ ʙᴏᴛs ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ.
-⦿ /settitle ➠ sᴇᴛs ᴛʜᴇ ᴛɪᴛʟᴇ ᴏғ ᴛʜᴇ ɢʀᴏᴜᴘ.
-⦿ /setdiscription ➠ sᴇᴛs ᴛʜᴇ ᴅᴇsᴄʀɪᴘᴛɪᴏɴ ᴏғ ᴛʜᴇ ɢʀᴏᴜᴘ.
-⦿ /setphoto ➠ sᴇᴛs ᴛʜᴇ ɢʀᴏᴜᴘ ᴘʜᴏᴛᴏ.
-⦿ /removephoto ➠ ʀᴇᴍᴏᴠᴇs ᴛʜᴇ ɢʀᴏᴜᴘ ᴘʜᴏᴛᴏ.
-⦿ /zombies ➠ ʀᴇᴍᴏᴠᴇs ᴀᴄᴄ ᴅᴇʟᴇᴛᴇᴅ ᴍᴇᴍʙᴇʀs ғʀᴏᴍ ᴛʜᴇ ɢʀᴏᴜᴘ.
-⦿ /imposter ᴏɴ/ᴏғғ ➠ ᴛᴜʀɴs ᴏɴ ᴏʀ ᴏғғ ᴛʜᴇ ᴡᴀᴛᴄʜᴇʀ ғᴏʀ ʏᴏᴜʀ ɢʀᴏᴜᴘ, ᴡʜɪᴄʜ ɴᴏᴛɪғɪᴇs ᴀʙᴏᴜᴛ ᴜsᴇʀs ᴡʜᴏ ᴄʜᴀɴɢᴇ ᴛʜᴇɪʀ ɴᴀᴍᴇ ᴏʀ ᴜsᴇʀɴᴀᴍᴇ.
+/id : دریافت شناسه گروه فعلی. اگر در پاسخ به پیامی استفاده شود، شناسه آن کاربر را نمایش می‌دهد.
+/info : دریافت اطلاعات کاربر.
+/github <نام کاربری> : دریافت اطلاعات کاربر گیت‌هاب.
 '''
 
-    HELP_Extra = '''Exᴛʀᴀ
+    HELP_Group = '''مدیریت گروه
 
-Exᴛʀᴀ ᴄᴏᴍᴍᴀɴᴅꜱ:
+دستورات مدیریت گروه:
 
-⦿ /math ➠ sᴏʟᴠᴇs ᴍᴀᴛʜᴇᴍᴀᴛɪᴄᴀʟ ᴘʀᴏʙʟᴇᴍs ᴀɴᴅ ᴇǫᴜᴀᴛɪᴏɴs.
-⦿ /blackpink ➠ ɢᴇɴᴇʀᴀᴛᴇs ᴀ ʙʟᴀᴄᴋᴘɪɴᴋ-sᴛʏʟᴇ ʟᴏɢᴏ.
-⦿ /carbon ➠ ɢᴇɴᴇʀᴀᴛᴇs ᴀ ᴄᴀʀʙᴏɴ ᴄᴏᴅᴇ ɪᴍᴀɢᴇ ғʀᴏᴍ ᴀ ᴄᴏᴅᴇ sɴɪᴘᴘᴇᴛ.
-⦿ /speedtest ➠ ᴍᴇᴀsᴜʀᴇs ᴛʜᴇ ɪɴᴛᴇʀɴᴇᴛ sᴘᴇᴇᴅ.
-⦿ /reverse ➠ ʀᴇᴠᴇʀsᴇs ᴀ ɢɪᴠᴇɴ ᴛᴇxᴛ.
-⦿ /webss ➠ ᴛᴀᴋᴇs ᴀ sᴄʀᴇᴇɴsʜᴏᴛ ᴏғ ᴀ ᴡᴇʙsɪᴛᴇ.
-⦿ /paste ➠ ᴜᴘʟᴏᴀᴅs ᴀ ᴛᴇxᴛ sɴɪᴘᴘᴇᴛ ᴛᴏ ᴛʜᴇ ᴄʟᴏᴜᴅ ᴀɴᴅ ɢɪᴠᴇs ᴀ ʟɪɴᴋ.
-⦿ /tgm ➠ ᴜᴘʟᴏᴀᴅs ᴀ ᴘʜᴏᴛᴏ (ᴜɴᴅᴇʀ 𝟻ᴍʙ) ᴛᴏ ᴛʜᴇ ᴄʟᴏᴜᴅ ᴀɴᴅ ɢɪᴠᴇs ᴀ ʟɪɴᴋ.
-⦿ /tr ➠ ᴛʀᴀɴsʟᴀᴛᴇs ᴛᴇxᴛ.
-⦿ /google ➠ sᴇᴀʀᴄʜᴇs ғᴏʀ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴏɴ ɢᴏᴏɢʟᴇ.
-⦿ /stack ➠ sᴇᴀʀᴄʜᴇs ғᴏʀ ᴘʀᴏɢʀᴀᴍᴍɪɴɢ-ʀᴇʟᴀᴛᴇᴅ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴏɴ sᴛᴀᴄᴋ ᴏᴠᴇʀғʟᴏᴡ.
+دستورات مدیریتی موجود:
+
+⦿ /pin ➠ سنجاق کردن پیام در گروه.
+⦿ /pinned ➠ نمایش پیام سنجاق شده در گروه.
+⦿ /unpin ➠ برداشتن سنجاق پیام فعلی.
+⦿ /staff ➠ نمایش لیست مدیران.
+⦿ /bots ➠ نمایش لیست ربات‌های گروه.
+⦿ /settitle ➠ تنظیم عنوان گروه.
+⦿ /setdiscription ➠ تنظیم توضیحات گروه.
+⦿ /setphoto ➠ تنظیم تصویر گروه.
+⦿ /removephoto ➠ حذف تصویر گروه.
+⦿ /zombies ➠ حذف حساب‌های حذف شده از گروه.
+⦿ /imposter on/off ➠ روشن/خاموش کردن ناظر گروه که تغییرات نام و نام کاربری را اطلاع می‌دهد.
 '''
 
-    HELP_Image = '''Iᴍᴀɢᴇ
+    HELP_Extra = '''امکانات اضافی
 
-Iᴍᴀɢᴇ ᴄᴏᴍᴍᴀɴᴅꜱ:
+دستورات اضافی:
 
-⦿ /draw ➠ ɢᴇɴᴇʀᴀᴛᴇs ᴀ ᴅʀᴀᴡɪɴɢ ʙᴀsᴇᴅ ᴏɴ ᴀ ɢɪᴠᴇɴ ᴘᴏʀᴏᴍᴘᴛ.
-⦿ /image ➠ sᴇᴀʀᴄʜᴇs ғᴏʀ ᴀɴ ɪᴍᴀɢᴇ ʙᴀsᴇᴅ ᴏɴ ᴀ ɢɪᴠᴇɴ ᴋᴇʏᴡᴏʀᴅ.
-⦿ /upscale ➠ ʀᴇᴘʟʏ ᴛᴏ ᴀɴ ɪᴍᴀɢᴇ ᴛᴏ ᴜᴘsᴄᴀʟᴇ ɪᴛ ᴀɴᴅ ɪᴍᴘʀᴏᴠᴇ ɪᴛs ǫᴜᴀʟɪᴛʏ.
-'''
-    HELP_Action = '''Aᴄᴛɪᴏɴ
-
-Aᴄᴛɪᴏɴ ᴄᴏᴍᴍᴀɴᴅꜱ:
-
-» ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs ꜰᴏʀ Bᴀɴs & Mᴜᴛᴇ :
-
- ❍ /kickme: kicks the user who issued the command
-
-Admins only:
- ❍ /ban <userhandle>: bans a user. (via handle, or reply)
- ❍ /sban <userhandle>: Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
- ❍ /tban <userhandle> x(m/h/d): bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
- ❍ /unban <userhandle>: unbans a user. (via handle, or reply)
- ❍ /kick <userhandle>: kicks a user out of the group, (via handle, or reply)
- ❍ /mute <userhandle>: silences a user. Can also be used as a reply, muting the replied to user.
- ❍ /tmute <userhandle> x(m/h/d): mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
- ❍ /unmute <userhandle>: unmutes a user. Can also be used as a reply, muting the replied to user.
-__
-𝐒ᴘᴇᴄɪᴀʟ 𝐂ᴏᴍᴍᴀɴᴅs 𝐒ᴜᴘᴘᴏʀᴛ 𝐀ʟʟ 𝐄xᴀᴍᴘʟᴇ  - 𝚈𝚞𝚖𝚒 𝚋𝚊𝚗 𝚈𝚞𝚖𝚒 𝚖𝚞𝚝𝚎 𝚈𝚞𝚖𝚒 𝚙𝚛𝚘𝚖𝚘𝚝𝚎 ..... 𝚎𝚝𝚌
-'''
-    HELP_Search = '''Sᴇᴀʀᴄʜ
-
-Sᴇᴀʀᴄʜ ᴄᴏᴍᴍᴀɴᴅꜱ:
-
-• /google <query> : Search the google for the given query.
-• /anime <query>  : Search myanimelist for the given query.
-• /stack <query>  : Search stackoverflow for the given query.
-• /image (/imgs) <query> : Get the images regarding to your query
-
-Example:
-/google pyrogram: return top 5 reuslts.
+⦿ /math ➠ حل مسائل و معادلات ریاضی.
+⦿ /blackpink ➠ ایجاد لوگو به سبک بلک‌پینک.
+⦿ /carbon ➠ ایجاد تصویر کد کربن از قطعه کد.
+⦿ /speedtest ➠ اندازه‌گیری سرعت اینترنت.
+⦿ /reverse ➠ معکوس کردن متن.
+⦿ /webss ➠ گرفتن اسکرین‌شات از وبسایت.
+⦿ /paste ➠ آپلود متن در فضای ابری و دریافت لینک.
+⦿ /tgm ➠ آپلود عکس (زیر ۵ مگابایت) در فضای ابری و دریافت لینک.
+⦿ /tr ➠ ترجمه متن.
+⦿ /google ➠ جستجو در گوگل.
+⦿ /stack ➠ جستجوی اطلاعات برنامه‌نویسی در استک اورفلو.
 '''
 
-    HELP_Font = '''ғᴏɴᴛ
+    HELP_Image = '''تصاویر
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ғᴏɴᴛ ᴍᴏᴅᴜʟᴇ:
+دستورات تصویر:
 
-ғᴏɴᴛ ᴍᴏᴅᴜʟᴇ:
-
-ʙʏ ᴜsɪɴɢ ᴛʜɪs ᴍᴏᴅᴜʟᴇ ʏᴏᴜ ᴄᴀɴ ᴄʜᴀɴɢᴇ ғᴏɴᴛs ᴏғ ᴀɴʏ ᴛᴇxᴛ!
-
-◌ /font [ᴛᴇxᴛ]
+⦿ /draw ➠ ایجاد نقاشی بر اساس توضیحات.
+⦿ /image ➠ جستجوی تصویر بر اساس کلمه کلیدی.
+⦿ /upscale ➠ پاسخ به تصویر برای افزایش کیفیت آن.
 '''
-    HELP_Game = '''ɢᴀᴍᴇs
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ɢᴀᴍᴇs ᴍᴏᴅᴜʟᴇ:
-ɢᴀᴍᴇs ᴍᴏᴅᴜʟᴇ:
+    HELP_Action = '''اقدامات مدیریتی
 
-ʜᴇʀᴇ ᴀʀᴇ sᴏᴍᴇ ᴍɪɴɪ ɢᴀᴍᴇs ғᴏʀ ʏᴏᴜ ᴛᴏ ᴘʟᴀʏ!
+دستورات مدیریتی:
 
-◌ /toss [ᴛᴏss ᴀ ᴄᴏɪɴ]
+» دستورات موجود برای بن و میوت:
 
-◌ /roll [ʀᴏʟʟ ᴀ ᴅɪᴄᴇ]
+ ❍ /kickme: اخراج کاربری که دستور را صادر کرده
 
-◌ /dart [ᴛʜʀᴏᴡ ᴀ ᴅᴀʀᴛ]
+فقط برای ادمین‌ها:
+ ❍ /ban <نام کاربری>: بن کردن کاربر (با نام کاربری یا پاسخ)
+ ❍ /sban <نام کاربری>: بن بی‌صدا. دستور و پیام پاسخ را حذف می‌کند (با نام کاربری یا پاسخ)
+ ❍ /tban <نام کاربری> x(m/h/d): بن موقت کاربر. m = دقیقه، h = ساعت، d = روز
+ ❍ /unban <نام کاربری>: رفع بن کاربر
+ ❍ /kick <نام کاربری>: اخراج کاربر از گروه
+ ❍ /mute <نام کاربری>: میوت کردن کاربر
+ ❍ /tmute <نام کاربری> x(m/h/d): میوت موقت کاربر
+ ❍ /unmute <نام کاربری>: رفع میوت کاربر
 
-◌ /slot [Jᴀᴄᴋᴘᴏᴛ ᴍᴀᴄʜɪɴᴇ]
-
-◌ /bowling [ʙᴏᴡʟɪɴɢ ɢᴀᴍᴇ]
-
-◌ /basket [ʙᴀsᴋᴇᴛʙᴀʟʟ ɢᴀᴍᴇ]
-
-◌ /football [ғᴏᴏᴛʙᴀʟʟ ɢᴀᴍᴇ]
+دستورات ویژه از همه فرمت‌ها پشتیبانی می‌کنند - مثال: یومی بن، یومی میوت، یومی ارتقا و...
 '''
-    HELP_TG = '''Ⓣ-ɢʀᴀᴘʜ
 
-Ⓣ-ɢʀᴀᴘʜ ᴄᴏᴍᴍᴀɴᴅꜱ:
+    HELP_Search = '''جستجو
 
-ᴄʀᴇᴀᴛᴇ ᴀ ᴛᴇʟᴇɢʀᴀᴘʜ ʟɪɴᴋ ᴀɴʏ ᴍᴇᴅɪᴀ!
+دستورات جستجو:
 
-◌ /tgm [ʀᴇᴘʟʏ ᴛᴏ ᴀɴʏ ᴍᴇᴅɪᴀ]
-◌ /tgt [ʀᴇᴘʟʏ ᴛᴏ ᴀɴʏ ᴍᴇᴅɪᴀ]
+• /google <عبارت> : جستجو در گوگل
+• /anime <عبارت> : جستجو در myanimelist
+• /stack <عبارت> : جستجو در استک اورفلو
+• /image (/imgs) <عبارت> : دریافت تصاویر مرتبط
+
+مثال:
+/google pyrogram: نمایش ۵ نتیجه برتر
 '''
-    HELP_Imposter = '''ɪᴍᴘᴏsᴛᴇʀ
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ɪᴍᴘᴏsᴛᴇʀ ᴍᴏᴅᴜʟᴇ:
+    HELP_Font = '''فونت‌ها
 
-ɪᴍᴘᴏsᴛᴇʀ ᴍᴏᴅᴜʟᴇ:
+راهنمای ماژول فونت:
+
+با استفاده از این ماژول می‌توانید فونت هر متنی را تغییر دهید!
+
+◌ /font [متن]
+'''
+
+    HELP_Game = '''بازی‌ها
+
+راهنمای ماژول بازی‌ها:
+
+مینی گیم‌هایی برای سرگرمی شما!
+
+◌ /toss [پرتاب سکه]
+◌ /roll [پرتاب تاس]
+◌ /dart [پرتاب دارت]
+◌ /slot [ماشین جکپات]
+◌ /bowling [بازی بولینگ]
+◌ /basket [بازی بسکتبال]
+◌ /football [بازی فوتبال]
+'''
+
+    HELP_TG = '''تلگراف
+
+دستورات تلگراف:
+
+ایجاد لینک تلگراف برای هر رسانه!
+
+◌ /tgm [پاسخ به رسانه]
+◌ /tgt [پاسخ به رسانه]
+'''
+
+    HELP_Imposter = '''ناظر تغییرات
+
+راهنمای ماژول ناظر:
 
 ◌ /imposter on
 ◌ /imposter off
 '''
-    HELP_TD = '''Tʀᴜᴛʜ-ᗪᴀʀᴇ
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ Tʀᴜᴛʜ-ᗪᴀʀᴇ ᴍᴏᴅᴜʟᴇ:
+    HELP_TD = '''جرأت یا حقیقت
 
-ᴛʀᴜᴛʜ ᴀɴᴅ ᴅᴀʀᴇ
-◌ /truth : sᴇɴᴅs ᴀ ʀᴀɴᴅᴏᴍ ᴛʀᴜᴛʜ sᴛʀɪɴɢ.
-◌ /dare : sᴇɴᴅs ᴀ ʀᴀɴᴅᴏᴍ ᴅᴀʀᴇ sᴛʀɪɴɢ.
+راهنمای ماژول جرأت یا حقیقت:
+
+◌ /truth : ارسال یک سوال حقیقت تصادفی
+◌ /dare : ارسال یک جرأت تصادفی
 '''
-    HELP_HT = '''ʜᴀsᴛᴀɢ
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ʜᴀsᴛᴀɢ ᴍᴏᴅᴜʟᴇ:
+    HELP_HT = '''هشتگ
 
-ʜᴀsᴛᴀɢ
-◌ /hastag : [ᴛᴇxᴛ]
+راهنمای ماژول هشتگ:
+
+◌ /hastag : [متن]
 '''
-    HELP_TTS = '''ᴛᴛs
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ᴛᴛs ᴍᴏᴅᴜʟᴇ:
+    HELP_TTS = '''تبدیل متن به گفتار
 
-❀ ᴛᴛs
-◌ /tts : [ᴛᴇxᴛ]
+راهنمای ماژول تبدیل متن به گفتار:
 
-◌ ᴜsᴀɢᴇ ➛ ᴛᴇxᴛ ᴛᴏ ᴀᴜᴅɪᴏ
+❀ تبدیل متن به گفتار
+◌ /tts : [متن]
+
+◌ کاربرد ➛ تبدیل متن به فایل صوتی
 '''
-    HELP_Fun = '''ғᴜɴ
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ғᴜɴ ᴍᴏᴅᴜʟᴇ:
-ᴡɪsʜ ᴍᴏᴅᴜʟᴇ:
+    HELP_Fun = '''سرگرمی
 
-◌ /wish : ᴀᴅᴅ ʏᴏᴜʀ ᴡɪsʜ ᴀɴᴅ sᴇᴇ ɪᴛs ᴘᴏssɪʙɪʟɪᴛʏ!
+راهنمای ماژول سرگرمی:
 
-ᴍᴏʀᴇ sᴛᴜғғ:
-◌ /sigma [ᴄʜᴇᴄᴋ ʏᴏᴜʀ sɪɢᴍᴀɴᴇss]
-◌ /cute [ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴄᴜᴛᴇɴᴇss]
-◌ /horny [ᴄʜᴇᴄᴋ ʏᴏᴜʀ ʜᴏʀɴʏɴᴇss]
-◌ /lesbo [ᴄʜᴇᴄᴋ ʜᴏᴡ ᴍᴜᴄʜ ʟᴇᴢʙɪᴀɴ ʏᴏᴜ ᴀʀᴇ]
-◌ /depressed [ᴄʜᴇᴄᴋ ʜᴏᴡ ᴍᴜᴄʜ ᴅᴇᴘʀᴇssᴇᴅ ʏᴏᴜ ᴀʀᴇ]
-◌ /gay [ᴄʜᴇᴄᴋ ʜᴏᴡ ᴍᴜᴄʜ ɢᴀʏ ʏᴏᴜ ᴀʀᴇ]
-◌ /rand [ᴄʜᴇᴄᴋ ʜᴏᴡ ᴍᴜᴄʜ ʀᴀɴᴅ ʏᴏᴜ ᴀʀᴇ]
-◌ /bkl [ᴄʜᴇᴄᴋ ʜᴏᴡ ᴍᴜᴄʜ ʙᴋʟ ʏᴏᴜ ᴀʀᴇ]
-◌ /boobs [ᴄʜᴇᴄᴋ ʏᴏᴜʀ ʙᴏᴏʙɪᴇs sɪᴢᴇ]
-◌ /dick [ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴅɪᴄᴋ sɪᴢᴇ]
+ماژول آرزو:
+◌ /wish : آرزوی خود را اضافه کنید و احتمال تحقق آن را ببینید!
+
+امکانات بیشتر:
+◌ /sigma [بررسی میزان سیگما بودن شما]
+◌ /cute [بررسی میزان بامزه بودن شما]
+◌ /horny [بررسی میزان هورنی بودن شما]
+◌ /lesbo [بررسی میزان لزبین بودن شما]
+◌ /depressed [بررسی میزان افسردگی شما]
+◌ /gay [بررسی میزان گی بودن شما]
+◌ /rand [بررسی میزان رند بودن شما]
+◌ /bkl [بررسی میزان bkl بودن شما]
+◌ /boobs [بررسی سایز سینه شما]
+◌ /dick [بررسی سایز آلت شما]
 '''
-    HELP_Q = '''ǫᴜᴏᴛʟʏ
 
-ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴛʜᴇ ǫᴜᴏᴛʟʏ ᴍᴏᴅᴜʟᴇ:
+    HELP_Q = '''نقل قول
 
-◌ /q : ᴄʀᴇᴀᴛᴇ ᴀ ǫᴜᴏᴛᴇ ғʀᴏᴍ ᴛʜᴇ ᴍᴇssᴀɢᴇ
+راهنمای ماژول نقل قول:
 
-◌ /q r : ᴄʀᴇᴀᴛᴇ ᴀ ǫᴜᴏᴛᴇ ғʀᴏᴍ ᴛʜᴇ ᴍᴇssᴀɢᴇ ᴡɪᴛʜ ʀᴇᴘʟʏ
+◌ /q : ایجاد نقل قول از پیام
+
+◌ /q r : ایجاد نقل قول از پیام با پاسخ
 '''
-    
-    
+
     fullpromote = {
-    'can_change_info': True,
-    'can_post_messages': True,
-    'can_edit_messages': True,
-    'can_delete_messages': True,
-    'can_invite_users': True,
-    'can_restrict_members': True,
-    'can_pin_messages': True,
-    'can_promote_members': True,
-    'can_manage_chat': True,
-}
+        'can_change_info': True,
+        'can_post_messages': True,
+        'can_edit_messages': True,
+        'can_delete_messages': True,
+        'can_invite_users': True,
+        'can_restrict_members': True,
+        'can_pin_messages': True,
+        'can_promote_members': True,
+        'can_manage_chat': True,
+    }
 
     promoteuser = {
-    'can_change_info': False,
-    'can_post_messages': True,
-    'can_edit_messages': True,
-    'can_delete_messages': False,
-    'can_invite_users': True,
-    'can_restrict_members': False,
-    'can_pin_messages': False,
-    'can_promote_members': False,
-    'can_manage_chat': True,
-}
+        'can_change_info': False,
+        'can_post_messages': True,
+        'can_edit_messages': True,
+        'can_delete_messages': False,
+        'can_invite_users': True,
+        'can_restrict_members': False,
+        'can_pin_messages': False,
+        'can_promote_members': False,
+        'can_manage_chat': True,
+    }
