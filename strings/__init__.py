@@ -1,34 +1,44 @@
 import os
 from typing import List
-
 import yaml
 
+# دیکشنری برای نگهداری زبان‌ها
 languages = {}
+# دیکشنری برای نگهداری نام زبان‌های موجود
 languages_present = {}
 
-
 def get_string(lang: str):
+    """دریافت رشته‌های زبان مورد نظر"""
     return languages[lang]
 
-
+# پیمایش فایل‌های زبان در پوشه
 for filename in os.listdir(r"./strings/langs/"):
-    if "en" not in languages:
-        languages["en"] = yaml.safe_load(
-            open(r"./strings/langs/en.yml", encoding="utf8")
+    # اگر زبان انگلیسی هنوز بارگذاری نشده
+    if "fa" not in languages:  # تغییر به فارسی به عنوان زبان پیش‌فرض
+        languages["fa"] = yaml.safe_load(
+            open(r"./strings/langs/fa.yml", encoding="utf8")  # تغییر به فایل فارسی
         )
-        languages_present["en"] = languages["en"]["name"]
+        languages_present["fa"] = languages["fa"]["name"]
+        
+    # بررسی فایل‌های yml
     if filename.endswith(".yml"):
-        language_name = filename[:-4]
-        if language_name == "en":
+        language_name = filename[:-4]  # حذف پسوند .yml
+        if language_name == "fa":  # رد کردن فایل فارسی
             continue
+            
+        # بارگذاری فایل زبان
         languages[language_name] = yaml.safe_load(
             open(r"./strings/langs/" + filename, encoding="utf8")
         )
-        for item in languages["en"]:
+        
+        # اضافه کردن کلیدهای موجود در فارسی که در زبان فعلی نیستند
+        for item in languages["fa"]:
             if item not in languages[language_name]:
-                languages[language_name][item] = languages["en"][item]
+                languages[language_name][item] = languages["fa"][item]
+    
     try:
+        # ذخیره نام زبان
         languages_present[language_name] = languages[language_name]["name"]
     except:
-        print("There is some issue with the language file inside bot.")
+        print("مشکلی در فایل زبان ربات وجود دارد.")
         exit()
