@@ -6,12 +6,215 @@ from config import OWNER_ID
 from pyrogram.types import Message
 from SHUKLAMUSIC.utils.Shukla_ban import admin_filter
 from pyrogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
-
+import asyncio
+from datetime import datetime
+import pytz
 
 
 # ------------------------------------------------------------------------------- #
 
+# اضافه کردن دستورات جدید به کد قبلی
 
+@app.on_message(filters.command(["setusername", "username"]) & admin_filter)
+async def set_username(_, message):
+    chat_id = message.chat.id
+    user_id = message.from_user.id
+    msg = await message.reply_text("🔄 در حال پردازش...")
+
+    if message.chat.type == enums.ChatType.PRIVATE:
+        return await msg.edit("❌ این دستور فقط در گروه‌ها کار می‌کند!")
+
+    if len(message.command) < 2:
+        return await msg.edit("❌ لطفا یوزرنیم جدید را وارد کنید!\n\nمثال: `/setusername گروه_من`")
+
+    try:
+        admin_check = await app.get_chat_member(chat_id, user_id)
+        if not admin_check.privileges.can_change_info:
+            return await msg.edit("❌ شما دسترسی تغییر اطلاعات گروه را ندارید!")
+
+        new_username = message.command[1].lower()
+        await app.set_chat_username(chat_id, new_username)
+        await msg.edit(f"""✅ یوزرنیم گروه با موفقیت تغییر کرد!
+
+👤 تغییر توسط: {message.from_user.mention}
+🆔 یوزرنیم جدید: @{new_username}""")
+
+    except Exception as e:
+        await msg.edit(f"❌ خطا: {str(e)}")
+
+@app.on_message(filters.command(["delusername", "rmusername"]) & admin_filter)
+async def delete_username(_, message):
+    chat_id = message.chat.id
+    user_id = message.from_user.id
+    msg = await message.reply_text("🔄 در حال پردازش...")
+
+    if message.chat.type == enums.ChatType.PRIVATE:
+        return await msg.edit("❌ این دستور فقط در گروه‌ها کار می‌کند!")
+
+    try:
+        admin_check = await app.get_chat_member(chat_id, user_id)
+        if not admin_check.privileges.can_change_info:
+            return await msg.edit("❌ شما دسترسی تغییر اطلاعات گروه را ندارید!")
+
+        await app.set_chat_username(chat_id, "")
+        await msg.edit(f"""✅ یوزرنیم گروه با موفقیت حذف شد!
+
+👤 حذف توسط: {message.from_user.mention}""")
+
+    except Exception as e:
+        await msg.edit(f"❌ خطا: {str(e)}")
+
+@app.on_message(filters.command("admins"))
+async def list_admins(_, message):
+    chat_id = message.chat.id
+    msg = await message.reply_text("🔄 در حال دریافت لیست ادمین‌ها...")
+
+    try:
+        admins = []
+        async for member in app.get_chat_members(chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
+            admin_info = f"👤 {member.user.mention}"
+            if member.title:
+                admin_info += f" | 📋 {member.title}"
+            admins.append(admin_info)
+
+        admins_text = "\n".join(admins)
+        await msg.edit(f"""📜 لیست ادمین‌های گروه:
+
+{admins_text}
+
+📊 تعداد کل: {len(admins)} ادمین""")
+
+    except Exception as e:
+        await msg.edit(f"❌ خطا: {str(e)}")
+
+@app.on_message(filters.command(["setdescription", "setdesc", "setbio"]) & admin_filter)
+async def set_description(_, message):
+    chat_id = message.chat.id
+    user_id = message.from_user.id
+    msg = await message.reply_text("🔄 در حال پردازش...")
+
+    if message.chat.type == enums.ChatType.PRIVATE:
+        return await msg.edit("❌ این دستور فقط در گروه‌ها کار می‌کند!")
+
+    if not message.reply_to_message and len(message.command) == 1:
+        return await msg.edit("""❌ لطفا متن توضیحات را وارد کنید یا به یک پیام ریپلای کنید!
+
+مثال:
+`/setdescription این گروه برای دوستان است`
+یا ریپلای روی متن + `/setdescription`""")
+
+    try:
+        admin_check = await app.get_chat_member(chat_id, user_id)
+        if not admin_check.privileges.can_change_info:
+            return await msg.edit("❌ شما دسترسی تغییر اطلاعات گروه را ندارید!")
+
+        if message.reply_to_message:
+            description = message.reply_to_message.text
+        else:
+            description = message.text.split(None, 1)[1]
+
+        await app.set_chat_description(chat_id, description)
+        await msg.edit(f"""✅ توضیحات گروه با موفقیت تغییر کرد!
+
+👤 تغییر توسط: {message.from_user.mention}""")
+
+    except Exception as e:
+        await msg.edit(f"❌ خطا: {str(e)}")
+
+@app.on_message(filters.command("info"))
+async def chat_info(_, message):
+    chat = message.chat
+    msg = await message.reply_text("🔄 در حال دریافت اطلاعات...")
+
+    try:
+        chat_info = await app.get_chat(chat.id)
+        members_count = await app.get_chat_members_count(chat.id)
+        
+        info_text = f"""📊 اطلاعات گروه:
+
+📝 نام: {chat_info.title}
+🆔 آیدی: `{chat_info.id}`
+👥 تعداد اعضا: {members_count}"""
+
+        if chat_info.username:
+            info_text += f"\n🔗 یوزرنیم: @{chat_info.username}"
+            
+        if chat_info.description:
+            info_text += f"\n📋 توضیحات: {chat_info.description}"
+
+        if chat_info.linked_chat:
+            linked = await app.get_chat(chat_info.linked_chat.id)
+            info_text += f"\n🔗 گروه/کانال مرتبط: {linked.title}"
+
+        await msg.edit(info_text)
+
+    except Exception as e:
+        await msg.edit(f"❌ خطا: {str(e)}")
+
+@app.on_message(filters.command(["autotitle", "autoname"]) & admin_filter)
+async def auto_title(_, message):
+    chat_id = message.chat.id
+    user_id = message.from_user.id
+    msg = await message.reply_text("🔄 در حال پردازش...")
+
+    if message.chat.type == enums.ChatType.PRIVATE:
+        return await msg.edit("❌ این دستور فقط در گروه‌ها کار می‌کند!")
+
+    try:
+        # بررسی دسترسی‌های ادمین
+        admin_check = await app.get_chat_member(chat_id, user_id)
+        if not admin_check.privileges.can_change_info:
+            return await msg.edit("❌ شما دسترسی تغییر اطلاعات گروه را ندارید!")
+
+        # دریافت نام اصلی گروه
+        group = await app.get_chat(chat_id)
+        base_title = group.title
+        if "|" in base_title:
+            base_title = base_title.split("|")[0].strip()
+
+        await msg.edit("✅ تایتل خودکار فعال شد!\n\nهر دقیقه ساعت کنار نام گروه بروزرسانی می‌شود.")
+
+        while True:
+            # تنظیم زمان تهران
+            tehran_tz = pytz.timezone('Asia/Tehran')
+            current_time = datetime.now(tehran_tz).strftime("%H:%M")
+            
+            # ترکیب نام گروه با ساعت
+            new_title = f"{base_title} | {current_time}"
+            
+            try:
+                await app.set_chat_title(chat_id, new_title)
+            except Exception as e:
+                print(f"خطا در تغییر نام گروه: {e}")
+                break
+                
+            await asyncio.sleep(60) # انتظار 60 ثانیه
+
+    except Exception as e:
+        await msg.edit(f"❌ خطا: {str(e)}")
+
+@app.on_message(filters.command(["stoptitle", "stopname"]) & admin_filter)
+async def stop_auto_title(_, message):
+    chat_id = message.chat.id
+    user_id = message.from_user.id
+    
+    try:
+        # بررسی دسترسی‌های ادمین
+        admin_check = await app.get_chat_member(chat_id, user_id)
+        if not admin_check.privileges.can_change_info:
+            return await message.reply("❌ شما دسترسی تغییر اطلاعات گروه را ندارید!")
+
+        # دریافت نام فعلی گروه و حذف ساعت
+        group = await app.get_chat(chat_id)
+        current_title = group.title
+        if "|" in current_title:
+            new_title = current_title.split("|")[0].strip()
+            await app.set_chat_title(chat_id, new_title)
+            
+        await message.reply("✅ تایتل خودکار غیرفعال شد و نام گروه به حالت اصلی برگشت.")
+        
+    except Exception as e:
+        await message.reply(f"❌ خطا: {str(e)}")
 @app.on_message(filters.command("pin") & admin_filter)
 async def pin(_, message):
     replied = message.reply_to_message
