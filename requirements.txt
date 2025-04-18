@@ -4,7 +4,7 @@ apscheduler
 asyncio
 bard
 stripe==10.7.0
-mysql-connector-python==9.0.0
+mysql-connector-python==9.1.0
 telebot==0.0.5
 youtube_dl==2021.12.17
 bing_image_downloader 
@@ -33,7 +33,7 @@ MukeshAPI
 numpy
 openai==0.28.0
 opencv-python
-pillow==9.5.0
+pillow==10.3.0
 psutil
 pickledb
 pornhub-api==0.3.0
